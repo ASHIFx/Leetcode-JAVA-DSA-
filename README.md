@@ -1,47 +1,36 @@
-# LeetCode Solutions
+# LeetCode Solutions in Java
 
-Java solutions to LeetCode problems, solved and pushed from VS Code.
+[![LeetCode](https://img.shields.io/badge/LeetCode-Kaneki404-FFA116?logo=leetcode&logoColor=white)](https://leetcode.com/u/Kaneki404/)
 
-![LeetCode Stats](https://leetcode-stats-card.vercel.app/api?username=Kaneki404&theme=dark)
+[![LeetCode Stats](https://leetcode-stats-card.vercel.app/api?username=Kaneki404&theme=dark)](https://leetcode.com/u/Kaneki404/)
 
-## Structure
+Solutions are written in Java and pushed straight from VS Code. Solved count, difficulty split and ranking come live from the LeetCode profile above, so nothing in this README needs updating as the repo grows.
 
-Solutions are organized by topic, not by problem number:
+## Repository layout
 
 ```
-.
-├── arrays-strings/
-├── linked-list/
-├── stack-queue/
-├── recursion/
-├── sliding-window/
-├── backtracking/
-├── greedy/
-├── trees/
-├── hashing/
-└── graphs/
+leetcode/
+└── P<problem-number>.java
 ```
 
-Each file is named `<problem-number>-<short-title>.java` (e.g. `46-permutations.java`).
+- One file per problem, named by its LeetCode number: problem 301 is `P301.java`.
+- Each file is only the `Solution` class, exactly as submitted. No `main` method or test code.
+- To find a problem, press `t` on GitHub and type its number.
 
-No problem index is maintained here — GitHub's own file browser serves as the index, and the stats badge above reflects total progress automatically.
+## Patterns and when to reach for them
 
-## Format
+The recurring techniques behind the solutions, and the signal in a problem that points to each one.
 
-Every solution follows the same shape:
+| Pattern | Reach for it when | Core idea |
+|---|---|---|
+| Stack | Matching or nesting, "most recent unmatched" | Push openers or indices; resolve the top when a closer arrives |
+| Running counter | Balance or depth checks, no need to remember positions | One integer replaces the stack when only the count matters |
+| Low/high counters | Wildcards that can act as either bracket | Track the minimum and maximum possible open count; clamp the minimum at 0, fail if the maximum goes below 0 |
+| Sliding window | Longest or shortest contiguous range under a constraint | Grow the right edge, shrink the left edge only when the constraint breaks; never restart |
+| Backtracking | "All" subsets, permutations, combinations, valid arrangements | Choose, recurse, undo; prune a branch as soon as it cannot lead to a valid answer |
+| Greedy | A local choice that provably never hurts the final answer | Decide once per step and never revisit; check with a small counter-example first |
+| Hash set / map | Membership, frequency, "have I seen this" | Trade O(n) space for O(1) lookup |
 
-```java
-class Solution {
-    public <returnType> <methodName>(<params>) {
-        // solution
-    }
-}
-```
+## Complexity convention
 
-No driver code, no test harness — just the `Solution` class as submitted on LeetCode.
-
-## Stack
-
-- Language: Java
-- Editor: VS Code
-- Source: [LeetCode](https://leetcode.com)
+Time and space follow standard notation over input size `n`. Backtracking solutions are exponential by nature (subsets are O(2^n), permutations O(n!)), so their cost is defined by the output size.
