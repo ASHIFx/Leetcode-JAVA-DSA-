@@ -1,21 +1,18 @@
 class Solution {
-    public long maxAlternatingSum(int[] nums) {
+    public String maxSumOfSquares(int num, int sum) {
+        if (sum > 9 * num) {
+            return "";
+        }
 
-        for (int i = 0; i < nums.length; i++) {
-            nums[i] *= nums[i];
+        StringBuilder ans = new StringBuilder();
+
+        while (num > 0) {
+            int digit = Math.min(9, sum);
+            ans.append(digit);
+            sum -= digit;
+            num--;
         }
-        Arrays.sort(nums);
-        long ans = 0;
-        int n = nums.length;
-        for (int i = 0; i < n; i++) {
-            if (i < n / 2) {
-                ans -= nums[i];
-            } 
-            else {
-                ans += nums[i];
-            }
-        }
-        
-        return ans;
+
+        return ans.toString();
     }
 }
