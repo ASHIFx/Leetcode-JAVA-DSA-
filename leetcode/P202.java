@@ -1,3 +1,6 @@
+import java.util.HashSet;
+import java.util.Set;
+
 class Solution {
     public boolean isHappy(int n) {
         Set<Integer> seen = new HashSet<>();

@@ -1,3 +1,5 @@
+import java.util.HashMap;
+
 class Solution {
     static final long MOD = 1_000_000_007L;
 

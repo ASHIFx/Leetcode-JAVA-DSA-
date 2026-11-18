@@ -1,3 +1,5 @@
+import java.util.List;
+
 class Solution {
     public long maxSum(List<Integer> nums, int k) {
         int[] bits = new int[31];

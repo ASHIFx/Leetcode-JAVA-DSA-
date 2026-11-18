@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 class Solution {
     static final int MOD = 1_000_000_007;
     long[][] C;
