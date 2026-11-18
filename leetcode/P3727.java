@@ -15,6 +15,7 @@ class Solution {
                 ans += nums[i];
             }
         }
+        
         return ans;
     }
 }
